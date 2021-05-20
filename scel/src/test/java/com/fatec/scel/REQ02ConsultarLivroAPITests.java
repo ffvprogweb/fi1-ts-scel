@@ -67,6 +67,8 @@ class REQ02ConsultarLivroAPITests {
 		Livro ro = resposta.getBody();
 		//Entao - retorna os detalhes do livro
 		Livro re = new Livro("1111", "Teste de Software", "Delamaro");
+		re.setId(id);
+		assertEquals(re.getId(),ro.getId());
 		assertTrue(re.equals(ro));
 		
 	}

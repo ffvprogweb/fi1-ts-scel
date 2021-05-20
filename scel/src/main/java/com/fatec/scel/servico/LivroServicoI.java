@@ -30,8 +30,9 @@ public class LivroServicoI implements LivroServico {
 
 	@Override
 	public ResponseEntity<Livro> consultaPorId(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.info(">>>>>> 2. servico consulta por id chamado");
+		return repository.findById(id).map(record -> ResponseEntity.ok().body(record))
+				.orElse(ResponseEntity.notFound().build());
 	}
 
 	@Override
